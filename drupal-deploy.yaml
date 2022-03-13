@@ -18,14 +18,14 @@ spec:
     spec:
       initContainers:
       - name: init-sites-volume
-        image: drupal:8.6
+        image: drupal
         command: ["/bin/bash", "-c" ]
         args: ['cp -r /var/www/html/sites/ /data/; chown www-data:www-data /data/ -R']
         volumeMounts:
         - mountPath: "/data"
           name: vol-drupal
       containers:
-      - image: drupal:8.6
+      - image: drupal
         name: drupal
         ports:
           - containerPort: 80
